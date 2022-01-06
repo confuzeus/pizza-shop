@@ -2,7 +2,7 @@
 
 This project contains code for a blog post at:
 
-https://confuzeus.com/hub/django-web-framework/harmful-defaults/
+https://confuzeus.com/hub/django-web-framework/dangerous-defaults/
 
 ## Instructions
 
