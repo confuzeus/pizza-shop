@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Orders</h1>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>Customer email</th>
+            <th>Address line 1</th>
+            <th>Address line 2</th>
+            <th>Address line 3</th>
+            <th>Pizza name</th>
+            <th>Toppings</th>
+            <th>Date</th>
+            <th>Updated at</th>
+        </tr>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.customer.auth_user.email }}</td>
+                <td>{{ order.customer.address.line_1 }}</td>
+                <td>{{ order.customer.address.line_2 }}</td>
+                <td>{{ order.customer.address.line_3 }}</td>
+                <td>{{ order.pizza.name }}</td>
+                <td>
+                    {% for pizza_topping in order.pizza.pizzatopping_set.all %}
+                        {{ pizza_topping.topping.name }}, <b>Extra</b>: {{ pizza_topping.extra }}<br>
+                    {% endfor %}
+                </td>
+                <td>{{ order.updated_at }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    {% include "_pagination.html" %}
+{% endblock %}

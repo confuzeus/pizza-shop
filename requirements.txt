@@ -1,0 +1,4 @@
+Django
+Faker
+django-debug-toolbar
+django-zen-queries
